@@ -7,6 +7,9 @@ import eu.timepit.refined.internal.Resources
 import shapeless.{ ::, HList, HNil }
 import shapeless.ops.hlist.ToList
 
+/**
+ * @group modules
+ */
 object boolean extends BooleanValidate with BooleanInference0 {
 
   /** Constant predicate that is always `true`. */

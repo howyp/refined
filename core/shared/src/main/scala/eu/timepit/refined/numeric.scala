@@ -26,6 +26,8 @@ import shapeless.ops.nat.ToInt
  * scala> refineMT[Greater[W.`1.5`.T]](1.6)
  * res2: Double @@ Greater[W.`1.5`.T] = 1.6
  * }}}
+ *
+ * @group modules
  */
 object numeric extends NumericValidate with NumericInference {
 

@@ -9,6 +9,11 @@ import eu.timepit.refined.internal.Resources
 import eu.timepit.refined.numeric.{ GreaterEqual, LessEqual }
 import shapeless.Witness
 
+/**
+ * Module for collection predicates.
+ *
+ * @group modules
+ */
 object collection extends CollectionValidate with CollectionInference {
 
   /**

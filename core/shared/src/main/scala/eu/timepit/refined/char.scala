@@ -4,7 +4,11 @@ import eu.timepit.refined.api.Validate
 import eu.timepit.refined.boolean.Or
 import eu.timepit.refined.char._
 
-/** Module for `Char` related predicates. */
+/**
+ * Module for `Char` related predicates.
+ *
+ * @group modules
+ */
 object char extends CharValidate {
 
   /** Predicate that checks if a `Char` is a digit. */

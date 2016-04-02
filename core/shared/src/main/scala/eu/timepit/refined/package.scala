@@ -4,6 +4,9 @@ import eu.timepit.refined.api.{ Refined, RefType }
 import eu.timepit.refined.internal._
 import shapeless.tag.@@
 
+/**
+ * @groupname modules Predicate Modules
+ */
 package object refined {
 
   /**
@@ -11,6 +14,8 @@ package object refined {
    * literal-based singleton types.
    *
    * Example: {{{
+   * scala> import eu.timepit.refined.W
+   *
    * scala> val d: W.`3.14`.T = 3.14
    * d: Double(3.14) = 3.14
    *
