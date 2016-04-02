@@ -4,6 +4,9 @@ import eu.timepit.refined.api.{ Refined, RefType }
 import eu.timepit.refined.internal._
 import shapeless.tag.@@
 
+/**
+ *
+ */
 package object refined {
 
   /**
