@@ -79,12 +79,12 @@ lazy val docs = project
   .settings(moduleName := s"$projectName-docs")
   .settings(commonSettings)
   .settings(noPublishSettings)
-  .settings(tutSettings)
-  .settings(
+  //.settings(tutSettings)
+  /*.settings(
     tutScalacOptions := scalacOptions.value,
     tutSourceDirectory := baseDirectory.value / "src",
     tutTargetDirectory := baseDirectory.value
-  )
+  )*/
   .dependsOn(coreJVM)
 
 lazy val scalacheck = crossProject.in(file("contrib/scalacheck"))
