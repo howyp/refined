@@ -319,7 +319,7 @@ lazy val styleSettings = Def.settings(
 
 val validateCommands =
   (List("clean")
-    ++ allSubprojectsJS.map(_ + "/test")
+    //++ allSubprojectsJS.map(_ + "/test")
     //++ List("coverage")
     ++ allSubprojectsJVM.map(_ + "/test")
     ++ List("scalastyle", "test:scalastyle")
