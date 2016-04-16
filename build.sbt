@@ -168,7 +168,7 @@ lazy val projectSettings = Seq(
 
 lazy val compileSettings = Seq(
   scalaVersion := "2.11.8",
-  crossScalaVersions := Seq(scalaVersion.value, "2.10.6"),
+  crossScalaVersions := Seq(scalaVersion.value, "2.10.6", "2.12.0-M4"),
   scalacOptions ++= Seq(
     "-deprecation",
     "-encoding", "UTF-8",
@@ -193,7 +193,7 @@ lazy val compileSettings = Seq(
     "org.typelevel" %%% "macro-compat" % macroCompatVersion,
     "com.chuusai" %%% "shapeless" % shapelessVersion,
     "org.scalacheck" %%% "scalacheck" % scalaCheckVersion % "test"
-  ),
+  )/*,
 
   wartremoverErrors in (Compile, compile) ++= Warts.unsafe diff Seq(
     Wart.Any,
@@ -201,7 +201,7 @@ lazy val compileSettings = Seq(
     Wart.NonUnitStatements,
     Wart.Null,
     Wart.Throw
-  )
+  )*/
 )
 
 lazy val scaladocSettings = Seq(
@@ -320,7 +320,7 @@ lazy val styleSettings = Def.settings(
 val validateCommands =
   (List("clean")
     ++ allSubprojectsJS.map(_ + "/test")
-    ++ List("coverage")
+    //++ List("coverage")
     ++ allSubprojectsJVM.map(_ + "/test")
     ++ List("scalastyle", "test:scalastyle")
     ++ List("doc", "docs/tut"))
