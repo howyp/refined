@@ -323,6 +323,6 @@ val validateCommands =
     //++ List("coverage")
     ++ allSubprojectsJVM.map(_ + "/test")
     ++ List("scalastyle", "test:scalastyle")
-    ++ List("doc"/*, "docs/tut"*/))
+    /*++ List("doc", "docs/tut")*/)
 
 addCommandAlias("validate", validateCommands.mkString(";", ";", ""))
