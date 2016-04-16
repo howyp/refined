@@ -28,7 +28,7 @@ val scalaCheckVersion = "1.12.5"
 val scalazVersion = "7.2.2"
 val scodecVersion = "1.9.0"
 
-val allSubprojects = List("core", "scalacheck", "scalaz", "scodec")
+val allSubprojects = List("core", "scalacheck", "scalaz" /*, "scodec"*/)
 val allSubprojectsJVM = allSubprojects.map(_ + "JVM")
 val allSubprojectsJS = allSubprojects.map(_ + "JS")
 
