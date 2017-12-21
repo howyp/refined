@@ -2,6 +2,7 @@ package eu.timepit.refined
 
 import eu.timepit.refined.api.{InhabitantsOf, Min, Refined}
 import eu.timepit.refined.numeric._
+import eu.timepit.refined.types.numeric._
 import org.scalacheck.Prop._
 import org.scalacheck.Properties
 import shapeless.nat._
@@ -24,5 +25,9 @@ class MinSpec extends Properties("Min") {
 
   property("Min - Less - Int") = secure {
     Min[Int Refined Less[_0]].min =? refineMV[Less[_0]](Int.MinValue)
+  }
+
+  property("CompanionObject.min - Positive - Long") = secure {
+    PosLong.min =? PosLong.unsafeFrom(1)
   }
 }
