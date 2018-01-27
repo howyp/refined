@@ -12,16 +12,17 @@ object Enumerate extends EnumerateInstances {
   }
 }
 trait EnumerateInstances {
-  implicit def enumerateFromMaxAndMin[F[_, _], T, P](implicit rt: RefType[F],
-                                                     min: Min[F[T, P]],
-                                                     max: Max[F[T, P]],
-                                                     adjacent: Adjacent[T]): Enumerate[F[T, P]] =
+  implicit def enumerateFromMaxAndMin[F[_, _], T, P](
+      implicit rt: RefType[F],
+      min: Min[F[T, P]],
+      max: Max[F[T, P]],
+      adjacent: Adjacent[F[T, P]]): Enumerate[F[T, P]] =
     Enumerate.instance {
-      def stream(head: F[T, P]): Stream[F[T, P]] = head match {
-        case last if last == max.max =>
-          Stream(last)
-        case next =>
-          Stream.cons(next, stream(rt.unsafeWrap(adjacent.nextUp(rt.unwrap(next)))))
+      def stream(head: F[T, P]): Stream[F[T, P]] = {
+        val next = adjacent.nextUp(head)
+        if (next == head) Stream(head)
+        else if (next == max.max) Stream(head, next)
+        else Stream.cons(head, stream(next))
       }
       stream(min.min)
     }
