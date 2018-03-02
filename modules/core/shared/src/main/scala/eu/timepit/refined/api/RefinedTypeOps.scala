@@ -1,5 +1,6 @@
 package eu.timepit.refined.api
 
+import eu.timepit.refined.boolean.Not
 import eu.timepit.refined.macros.RefineMacro
 
 /**
@@ -33,6 +34,13 @@ class RefinedTypeOps[FTP, T](implicit rt: RefinedType.AuxT[FTP, T]) extends Seri
 
   def from(t: T): Either[String, FTP] =
     rt.refine(t)
+
+  def orNot[F[_, _], P](t: T)(
+      implicit ev: F[T, P] =:= FTP,
+      rt: RefType[F],
+      v: Validate[T, P]
+  ): Either[F[T, Not[P]], FTP] =
+    rt.refine[P].orNot(t).map(ev.apply)
 
   def unapply(t: T): Option[FTP] =
     from(t).right.toOption
